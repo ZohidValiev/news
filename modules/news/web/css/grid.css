@@ -1,0 +1,48 @@
+.c-grid {
+    font-size: 1.3rem;
+    border: 1px solid #81a478;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+}
+.c-grid__head-row th,
+.c-grid__row td {
+    border-width: 0;
+    padding: 6px 4px;
+}
+.c-grid__row {
+    border-top: 1px solid #81a478;
+}
+.c-grid__row:nth-of-type(odd) {
+    background-color: rgba(129, 164, 59, 0.8)
+}
+.c-grid__row:nth-of-type(even) {
+    background-color: #ffffff;
+}
+.c-grid__head-row > th,
+.c-grid__row > td {
+    border-right: 1px solid #81a478;
+}
+.c-grid__cell--right {
+    text-align: right;
+}
+.c-grid__cell-center {
+    text-align: center;
+}
+
+.c-grid--collapsed {
+    border-width: 0;
+}
+.c-grid--collapsed .c-grid__head-row > th,
+.c-grid--collapsed .c-grid__row > td {
+    border-right-width: 0;
+}
+.c-grid__row:hover {
+    background-color: rgba(129,164,59,0.4);
+}
+
+.c-grid__icon:not(:last-child) {
+    margin-right: 4px;
+    cursor: pointer;
+}
