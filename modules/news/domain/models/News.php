@@ -47,11 +47,22 @@ class News extends \yii\db\ActiveRecord
         ];
     }
 
-    public function createRubricRelation(Rubric $rubric): RubricNews
+    public function assignToRubrics(array $rubrics): array
+    {
+        $relations = [];
+        foreach($rubrics as $rubric){
+        	$relations[] = $this->assignToRubric($rubric);
+        }
+
+        return $relations;
+    }
+
+    public function assignToRubric(Rubric $rubric): RubricNews
     {
         $relation = new RubricNews();
         $relation->rubricId = $rubric->id;
         $relation->newsId   = $this->id;
+        $relation->insert(false);
 
         return $relation;
     }

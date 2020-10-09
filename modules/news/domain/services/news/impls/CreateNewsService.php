@@ -32,10 +32,7 @@ class CreateNewsService implements ICreateNewsService
         $content->insert(false);
         $news->populateRelation('content', $content);
 
-        foreach ($rubrics as $rubric) {
-            $relation = $news->createRubricRelation($rubric);
-            $relation->insert(false);
-        }
+        $news->assignToRubrics($rubrics);
 
         return $news;
     }
